@@ -1,14 +1,13 @@
 import torch
 import lightning as L
 import torch.nn.functional as F
-from ..components.mnist_autoencoder import Encoder, Decoder
 
-class LitAutoEncoder(L.LightningModule):
-    def __init__(self):
+class MNISTAutoencoderModule(L.LightningModule):
+    def __init__(self, encoder, decoder):
         # init encoder and decoder first
         super().__init__()
-        self.encoder = Encoder()
-        self.decoder = Decoder()
+        self.encoder = encoder
+        self.decoder = decoder
 
     def training_step(self, batch, batch_idx, dataloader_idx = None):
         # input, target = batch

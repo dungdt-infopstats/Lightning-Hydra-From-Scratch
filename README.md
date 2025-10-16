@@ -4,7 +4,8 @@ This repository is the reimplementation of [Pytorch Lightning Hydra](https://pyt
 ## Installation
 You can install the required packages using pip:
 ```bash
-python -m pip install lightning
+pip install lightning
+pip install hydra-core
 ```
 
 ## Flow

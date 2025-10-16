@@ -1,0 +1,4 @@
+_target_: src.models.components.mnist_autoencoder.decoder.Decoder
+latent_dim: 3
+output_dim: 784
+hidden_dim: 64
