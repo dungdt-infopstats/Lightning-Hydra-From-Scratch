@@ -20,7 +20,7 @@ def main(cfg: DictConfig):
     print("="*50)    
 
     model = hydra.utils.instantiate(cfg.model)
-    train_loader = get_dataloaders()
+    train_loader = hydra.utils.instantiate(cfg.data)
 
     trainer = L.Trainer(
         max_epochs = 10,
