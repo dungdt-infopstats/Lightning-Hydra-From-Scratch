@@ -2,3 +2,6 @@ defaults:
 - model: mnist_autoencoder_module
 - data: mnist
 - trainer: default
+
+
+train: True

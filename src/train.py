@@ -23,7 +23,8 @@ def main(cfg: DictConfig):
     train_loader: DataLoader = hydra.utils.instantiate(cfg.data)
     trainer: L.Trainer = hydra.utils.instantiate(cfg.trainer)
 
-    trainer.fit(model, train_loader)
+    if cfg.get("train"):
+        trainer.fit(model, train_loader)
 
 if __name__ == "__main__":
     main()
