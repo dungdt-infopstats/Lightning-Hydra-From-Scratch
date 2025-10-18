@@ -1,0 +1,5 @@
+defaults:
+- mnist/decoder@_here_
+- mnist/encoder@_here_
+
+_target_: src.models.mnist_autoencoder_module.MNISTAutoencoderModule
