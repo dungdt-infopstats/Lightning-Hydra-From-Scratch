@@ -1,5 +1,0 @@
-defaults:
-- decoder: decoder
-- encoder: encoder
-
-_target_: src.models.mnist_autoencoder_module.MNISTAutoencoderModule

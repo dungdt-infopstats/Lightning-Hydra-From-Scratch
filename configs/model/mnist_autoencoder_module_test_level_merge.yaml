@@ -1,0 +1,5 @@
+defaults:
+- components_test_level_merge/decoder@_here_ # directly merge decoder config instead of using path
+- components_test_level_merge/encoder@encoder # create a new key 'encoder' and merge encoder config there (encoder config must not have encoder key to ensure no key conflicts)
+
+_target_: src.models.mnist_autoencoder_module.MNISTAutoencoderModule

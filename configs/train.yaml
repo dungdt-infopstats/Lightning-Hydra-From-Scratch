@@ -1,7 +1,7 @@
 defaults:
-- model: mnist_autoencoder_module
+- model: mnist_autoencoder_module_test_level_merge
 - data: mnist
 - trainer: default
 
-train: False
+train: True
 test: True
