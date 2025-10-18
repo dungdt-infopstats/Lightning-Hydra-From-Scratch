@@ -1,5 +1,5 @@
 # Pytorch Lightning Hydra From Scratch
-This repository is the reimplementation of [Pytorch Lightning Hydra](https://pytorch-lightning.readthedocs.io/en/stable/hydra.html) from scratch. It is a simple and easy-to-understand implementation that can be used as a reference for learning how to use Hydra with Pytorch Lightning.
+This repository is the reimplementation of [Pytorch Lightning Hydra](https://github.com/ashleve/lightning-hydra-template) from scratch. It is a simple and easy-to-understand implementation that can be used as a reference for learning how to use Hydra with Pytorch Lightning.
 
 ## Installation
 You can install the required packages using pip:
