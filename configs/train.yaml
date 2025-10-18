@@ -3,5 +3,5 @@ defaults:
 - data: mnist
 - trainer: default
 
-
-train: True
+train: False
+test: True

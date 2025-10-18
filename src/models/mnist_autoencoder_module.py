@@ -18,8 +18,19 @@ class MNISTAutoencoderModule(L.LightningModule):
         x = x.view(x.size(0), -1)
         z = self.encoder(x)
         x_hat = self.decoder(z)
-        loss = F.mse_loss(x_hat, x)
-        return loss
+        train_loss = F.mse_loss(x_hat, x)
+        self.log("train_loss", train_loss)
+        return train_loss
+    
+    def test_step(self, batch, batch_idx, dataloader_idx = None):
+        x, _ = batch
+
+        x = x.view(x.size(0), -1)
+        z = self.encoder(x)
+        x_hat = self.decoder(z)
+        test_loss = F.mse_loss(x_hat, x)
+        self.log("test_loss", test_loss)
+        return test_loss
     
     def configure_optimizers(self):
         optimizer = torch.optim.Adam(self.parameters(), lr = 1e-3)

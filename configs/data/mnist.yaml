@@ -1,2 +1,3 @@
-_target_: src.data.components.mnist_autoencoder.dataloader.get_dataloaders
-data_path: data # Đường dẫn tương đối đến thư mục chứa dữ liệu
+defaults:
+- train: train
+- test: test

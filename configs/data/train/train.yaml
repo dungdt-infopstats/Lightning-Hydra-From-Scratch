@@ -1,0 +1,2 @@
+_target_: src.data.components.mnist_autoencoder.dataloader.get_train_dataloader
+data_path: data

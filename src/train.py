@@ -12,7 +12,7 @@ import hydra
 from omegaconf import DictConfig, OmegaConf
 
 @hydra.main(config_path="../configs", config_name="train", version_base=None)
-def main(cfg: DictConfig):
+def train(cfg: DictConfig):
     print("="*50)
     print("Configuration:")
     print("="*50)
@@ -20,11 +20,15 @@ def main(cfg: DictConfig):
     print("="*50)    
 
     model: L.LightningModule = hydra.utils.instantiate(cfg.model)
-    train_loader: DataLoader = hydra.utils.instantiate(cfg.data)
     trainer: L.Trainer = hydra.utils.instantiate(cfg.trainer)
 
     if cfg.get("train"):
+        train_loader: DataLoader = hydra.utils.instantiate(cfg.data.train)
         trainer.fit(model, train_loader)
 
+    if cfg.get("test"):
+        test_loader: DataLoader = hydra.utils.instantiate(cfg.data.test)
+        trainer.test(model, test_loader)
+
 if __name__ == "__main__":
-    main()
+    train()
