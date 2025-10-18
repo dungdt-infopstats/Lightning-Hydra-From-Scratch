@@ -6,7 +6,7 @@ project_root = Path(__file__).parent.parent
 sys.path.insert(0, str(project_root))
 
 from src.models.mnist_autoencoder_module import MNISTAutoencoderModule
-from src.data.components.mnist_autoencoder.dataloader import get_dataloaders
+from torch.utils.data import DataLoader
 import lightning as L
 import hydra
 from omegaconf import DictConfig, OmegaConf
@@ -19,15 +19,9 @@ def main(cfg: DictConfig):
     print(OmegaConf.to_yaml(cfg))
     print("="*50)    
 
-    model = hydra.utils.instantiate(cfg.model)
-    train_loader = hydra.utils.instantiate(cfg.data)
-
-    trainer = L.Trainer(
-        max_epochs = 10,
-        accelerator = "auto",  # Tự động chọn GPU nếu có, nếu không sẽ dùng CPU
-        devices = 1,  # Sử dụng 1 GPU
-
-    )
+    model: L.LightningModule = hydra.utils.instantiate(cfg.model)
+    train_loader: DataLoader = hydra.utils.instantiate(cfg.data)
+    trainer: L.Trainer = hydra.utils.instantiate(cfg.trainer)
 
     trainer.fit(model, train_loader)
 
